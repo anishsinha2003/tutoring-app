@@ -1,0 +1,47 @@
+.dottedBg {
+    background-image: url('/trial.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    height: 100%;
+    opacity: 0.08;
+    top: -300px;
+    width: 100%;
+    z-index: 1;
+
+}
+
+.banner {
+    position: absolute;
+    top: -29px;
+    left: -25px;
+    width: 340px;
+    height: auto;
+    background-color: #CB2C2C;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    transform: rotate(315deg) translate(-100px, 30px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    z-index: 1;
+
+}
+
+.bannerText1 {
+    font-family: Montserrat;
+    color:rgba(255, 255, 255, 0.826);
+    font-size: 17px;
+    letter-spacing: 1px;
+
+}
+
+.bannerText2 {
+    font-family: Montserrat;
+    color:rgba(255, 255, 255, 0.395);
+    font-size: 17px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}

@@ -5,7 +5,7 @@ import styles from "@/styles/mainPage.module.css";
 import BackgroundWaveEffect from "@/components/BackgroundWaveEffect";
 
 
-export default function BookClass() {
+export default function Profile() {
 
   // isloadinf here is needed because it takes time to retrieve the user data and
   // you wouldnt want anything to happen while it is loading
@@ -27,7 +27,7 @@ export default function BookClass() {
           style={{ height: "clamp(700px, 75vh, 2600px)", width: "100%" }}
         >
           <div className={styles.topHalfContentsContainer}>
-            BookClass
+            Profile
           </div>
           <BackgroundWaveEffect/>
         </div>
