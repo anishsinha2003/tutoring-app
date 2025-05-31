@@ -10,39 +10,11 @@ import { useUser } from "@auth0/nextjs-auth0";
 import BackgroundWaveEffect from "./BackgroundWaveEffect";
 
 export default function HomePage() {
-  //   // adding new user
-  //   const addNewUser = async (event: any) => {
-  //     event.preventDefault()
-  //     console.log(session)
-  //     try {
-  //         const doctRef = await setDoc(doc(db, "users", session.user.email), {
-  //             name: session.user.name,
-  //             email: session.user.email,
-  //             createdAt: new Date()
-  //         });
-  //     } catch(error) {
-  //         console.log("error adding doc", error)
-  //     }
-  //   }
-
-  //   // updating user details
-  //   const updateUser = async (event: any) => {
-  //     event.preventDefault()
-  //      try {
-  //         const userRef = doc(db, "users", session.user.email);
-
-  //         await updateDoc(userRef, {
-  //             name: "ANSIHSINAh new"
-  //         });
-  //     } catch(error) {
-  //         console.log("error adding doc", error)
-
-  //     }
-  //   }
 
   // user stuff
 	const { user, isLoading } = useUser();
 	const userLoggedIn = !isLoading && user;
+
 
   return (
     <>
@@ -128,6 +100,6 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </>
+    </>
   );
 }

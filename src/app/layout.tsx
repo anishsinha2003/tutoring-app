@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@fontsource/montserrat/700.css";
 import "@fontsource/montserrat/400.css";
-import { Auth0Provider } from "@auth0/nextjs-auth0";
+import { Auth0Provider, useUser } from "@auth0/nextjs-auth0";
 import styles from "@/styles/background.module.css";
 import { auth0 } from "@/lib/auth0";
 import NavBar from "@/components/NavBar";
@@ -20,6 +20,7 @@ export default async function RootLayout({
 }>) {
 
   const _ = await auth0.getSession();
+
   return (
     <html lang="en">
       <body style={{ backgroundColor: "#D9D9D9" }}>
@@ -35,23 +36,7 @@ export default async function RootLayout({
           }}
         >
           <div className={styles.dottedBg} />
-          <div
-            style={{
-              overflow: "hidden",
-              background: "linear-gradient(#008476, #d9d9d9)",
-              opacity: 0.1,
-              width: 200,
-              height: "calc(100%)",
-              position: "absolute",
-              transform: "rotate(20deg)",
-              zIndex: 1,
-            }}
-          />
-
-          <div className={styles.banner}>
-            <div className={styles.bannerText1}>Free Trial Lesson</div>
-            <div className={styles.bannerText2}>Limited Time Offer!</div>
-          </div>
+          <div className={styles.diagonalBox}/>
           <NavBar/>
           {children}
         </div>

@@ -369,32 +369,3 @@
     padding-right: 20px;
     letter-spacing: 1px;
 }
-
-
-@media (max-width: 323px) {
-    .banner {
-        display: none;
-
-    }
-}
-
-@media (max-width: 450px) {
-    .banner {
-        top: -59px;
-        left: -55px;
-        font-size: 2px;
-
-    }
-    .bannerText1 {
-        font-size: 12px;
-        letter-spacing: 1px;
-
-    }
-
-    .bannerText2 {
-        font-size: 12px;
-        font-weight: 100;
-        letter-spacing: 1px;
-
-    }
-}

@@ -45,3 +45,19 @@
     font-weight: 100;
     letter-spacing: 1px;
 }
+.diagonalBox {
+    overflow: hidden;
+    background: linear-gradient(#008476, #d9d9d9);
+    opacity: 0.1;
+    width: 200px;
+    height: calc(100%);
+    position: absolute;
+    transform: rotate(20deg);
+    z-index: 1;
+}
+
+@media (max-width: 550px) {
+  .diagonalBox {
+    display: none;
+  }
+}

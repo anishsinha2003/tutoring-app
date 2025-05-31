@@ -1,0 +1,223 @@
+.centerOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f3f3f3;
+    border-radius: 10px;
+    height: 900px;
+    /* width: 600px; */
+    /* min-width: 300px; */
+    width: clamp(300px, 80%, 600px);
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+}
+
+@media (max-width: 1000px) {
+  .centerOverlay {
+    top: 60%;
+  }
+}
+
+@media (max-height: 900px) {
+  .centerOverlay {
+    top: 70%;
+  }
+}
+
+@media (max-height: 750px) {
+  .centerOverlay {
+    top: 90%;
+  }
+}
+
+@media (max-height: 600px) {
+  .centerOverlay {
+    top: 120%;
+  }
+}
+
+@media (max-height: 500px) {
+  .centerOverlay {
+    top: 150%;
+  }
+}
+
+@media (max-height: 400px) {
+  .centerOverlay {
+    top: 200%;
+  }
+}
+
+@media (max-height: 300px) {
+  .centerOverlay {
+    top: 250%;
+  }
+}
+
+.icon {
+  display: block; /* Default: visible */
+}
+
+/* Hide icon on small screens */
+@media (max-width: 650px) {
+  .icon {
+    display: none;
+  }
+}
+.topBar {
+    background-color: #565656;
+    font-family: Montserrat;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: #7b7b7b;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 20px;
+    height: 70px;
+    width: 100%;
+    position: relative;
+    top: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.contentContainer {
+    /* background-color: blue; */
+    height: 100%;
+    display: grid;
+    width: 100%;
+    grid-template-rows: [start] 25% [one] 65% [two] 10% [end];
+    grid-template-columns: 100%;
+}
+
+.profilePicRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: start / one;
+    /* background-color: lightblue; */
+    padding-top: 80px;
+    opacity: 0.9;
+}
+
+
+.profileImage {
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.textFieldRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    grid-row: one / two;
+    gap: 30px;
+    position: relative;
+    top: -30px;
+    /* background-color: lightgray; */
+}
+
+.actionsRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: two / end;
+    /* background-color: green; */
+}
+
+.actionsRowContainer {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    grid-row: two / end;
+    width: 70%;
+    height: 100%;
+}
+
+.saveButton {
+    width: 50%;
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    padding: 20px 30px 20px 30px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #D6D6D6;
+    color: #686868;
+    align-items: center;
+    position: relative;
+    border-radius: 3px;
+    top: -50px;
+}
+
+.deleteButton {
+    width: 50%;
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    padding: 20px 30px 20px 30px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    background-color: #fa605f;
+    color: #ffe2e2;
+    align-items: center;
+    position: relative;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    top: -50px;
+
+}
+
+/* textfield styles */
+
+.container {
+    width: 70%;
+}
+
+.label {
+    display: block;
+    color: #bebebe;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    font-family: Montserrat;
+}
+
+.inputWrapper {
+  margin-top: 0.5rem;
+}
+
+.input {
+    display: block;
+    border-radius: 0.2rem;
+    padding: 0.375rem 0.8rem;
+    width: 100%;
+    height: 40px;
+    outline: none;
+    font-size: 1rem;
+    color: inherit;
+    font-family: Montserrat;
+    letter-spacing: 1px;
+    color: rgb(152, 152, 152);
+    background-color: white;
+    box-shadow: inset 0 0 0 1px #4d4d4d27;
+    transition: color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    cursor:text;
+}
+
+
+.input:focus {
+    cursor:text;
+    color: rgb(99, 99, 99);
+    box-shadow: inset 0 0 0 2px #4db7ac;
+}
