@@ -1,3 +1,4 @@
+
 .centerOverlay {
     position: absolute;
     top: 50%;
@@ -10,8 +11,8 @@
     align-items: center;
     background: #f3f3f3;
     border-radius: 10px;
-    height: 700px;
-    width: clamp(300px, 60%, 900px);
+    height: 900px;
+    width: clamp(300px, 80%, 600px);
     box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
 }
 
@@ -84,119 +85,34 @@
     border-top-right-radius: 10px;
 }
 
-.topContainer {
+.contentContainer {
+
     height: 100%;
     display: grid;
     width: 100%;
-    grid-template-rows: 100%;
-    grid-template-columns: [start] 1fr [mid] 1fr [end];
-
-}
-.leftContainer {
-    background-color: #38413E;
-    height: 100%;
-    display: grid;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    width: 100%;
-    grid-template-rows: [start] 1fr [one] 1fr [two] 1fr [end];
+    grid-template-rows: [start] 25% [one] 65% [two] 10% [end];
+    grid-template-columns: 100%;
 }
 
-.profileImageContainer {
-    width: 100%;
-    grid-row: start / one;
+.profilePicRow {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    bottom: -40px;
+    grid-row: start / one;
+
+    padding-top: 80px;
+    opacity: 0.9;
 }
+
 
 .profileImage {
     display: block;
     position: relative;
     border-radius: 50%;
     object-fit: cover;
-    opacity: 0.8;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
-
-.description {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-    padding: 0px 30px 0 30px;
-    text-align: center;
-    position: relative;
-    bottom: -50px;
-}
-
-.description1 {
-    font-family: Montserrat;
-    color: white;
-    font-size: 17px;
-    left: 1px;
-    font-weight: 300;
-    padding-bottom: 20px;
-    letter-spacing: 1px;
-    opacity: 0.4;
-}
-.description2 {
-    font-family: Montserrat;
-    color: white;
-    font-size: 12px;
-    left: 1px;
-    padding: 0px 40px 0 40px;
-    line-height: 19px;
-    opacity: 0.2;
-}
-
-.fillerImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    grid-row: two / end;
-}
-
-.fillerImageConf {
-    opacity: 0.4;
-}
-
-.rightContainer {
-    height: 100%;
-    display: grid;
-    width: 100%;
-    grid-template-rows: [start] 5% [one] 85% [two] 10% [end];
-    grid-template-columns: 100%;
-}
-
-.titleContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-row: start / one;
-    padding-top: 80px;
-    opacity: 0.9;
-    position: relative;
-    top: -10px;
-    left: -10px;
-}
-
-.titleContainer2 {
-    width: 70%;
-}
-
-.title {
-    font-family: Montserrat;
-    font-size: 20px;
-    color: black;
-    opacity: 0.2;
-
-}
-
 
 .textFieldRow {
     display: flex;
@@ -206,6 +122,7 @@
     grid-row: one / two;
     gap: 10px;
     position: relative;
+    top: -10px;
 
 }
 

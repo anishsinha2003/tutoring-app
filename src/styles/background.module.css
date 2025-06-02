@@ -9,7 +9,25 @@
     top: -300px;
     width: 100%;
     z-index: 1;
+}
 
+/* As screen width increases, move it further up */
+@media (min-width: 2068px) {
+  .dottedBg {
+    top: -500px;
+  }
+}
+
+@media (min-width: 3068px) {
+  .dottedBg {
+    top: -800px;
+  }
+}
+
+@media (min-width: 4068px) {
+  .dottedBg {
+    top: -1000px;
+  }
 }
 
 .banner {

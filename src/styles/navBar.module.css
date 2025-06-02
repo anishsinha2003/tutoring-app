@@ -29,7 +29,14 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     margin-right: 20px;
     margin-top: 30px;
+    transition: 0.5s;
+    cursor: pointer;
+}
 
+.loginButton:hover {
+    color: rgba(39, 39, 39, 0.72);
+    background-color: rgb(254, 254, 254);
+    cursor: pointer;
 }
 
 .upperHalfContainer {
@@ -169,8 +176,15 @@
     border-radius: 50%;
     object-fit: cover;
     bottom: -10px;
+    opacity: 0.9;
     left: -10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
 
+
+.profileImage:hover {
+    opacity: 1;
 }
 
 @media (max-width: 1300px) {

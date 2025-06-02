@@ -4,21 +4,23 @@ import styles from "@/styles/navBar.module.css";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0";
-import { Avatar, Divider, ListItemIcon, Menu, MenuItem, Tooltip } from "@mui/material";
+import { Divider, ListItemIcon, Menu, MenuItem, Tooltip } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
 import Link from "next/link";
 import { doc, getDoc, setDoc } from "@firebase/firestore";
 import db from "@/lib/firestore";
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SchoolIcon from '@mui/icons-material/School';
+import Breadcrumb from "./Breadcrumb";
 
 export default function NavBar() {
-  // get current route for some style stuff
-   const pathname = usePathname()
-  console.log(pathname)
 
+  // get current route for some style stuff
+  const pathname = usePathname()
+  const [pageLoading, setPageLoading] = useState(true)
 
   // user stuff
 	const { user, isLoading } = useUser();
@@ -39,6 +41,7 @@ export default function NavBar() {
   useEffect(() => {
     const addNewUser = async () => {
       if (!user?.email) return;
+        setPageLoading(true)
 
       try {
         const userRef = doc(db, "users", user.email);
@@ -60,6 +63,8 @@ export default function NavBar() {
         console.log("New user added to Firestore.");
       } catch (error) {
         console.error("Error checking/adding user:", error);
+      } finally {
+        setPageLoading(false)
       }
     };
 
@@ -84,25 +89,23 @@ export default function NavBar() {
           sx={{ backgroundColor: "transparent", boxShadow: "none" }}
         >
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            ></IconButton>
+            {pathname === "/"
+              ? <></>
+              : <div style={{position: "relative", bottom: "-10px", right: "-10px"}}><Breadcrumb/></div>
+            }
             <Typography
               variant="h6"
               component="div"
               sx={{ flexGrow: 1 }}
             ></Typography>
             {!userLoggedIn ? (
-              <div className={styles.loginButton}>
+
+              <div className={styles.loginButton} style={{visibility: pageLoading && isLoading ? "hidden" : "visible"}}>
                 <a href="/auth/login">Login</a>
               </div>
             ) : (
               <>
-                <Tooltip title="Account settings">
+                <Tooltip title="Profile">
                   <Image
                     onClick={handleClick}
                     src={user.picture!}
@@ -151,19 +154,19 @@ export default function NavBar() {
                 >
                   <Link href={"/profile"}>
                   <MenuItem onClick={handleClose}>
-                    <Avatar /> Profile
+                    <AccountCircleIcon sx={{fontSize: "30px", color: "#056B60", opacity: "0.8"}}/> &nbsp;&nbsp;&nbsp;<span style={{fontFamily: "Montserrat", color: 'black', letterSpacing: '0.5px', opacity: 0.8}}>Profile&nbsp;&nbsp;</span>
                   </MenuItem>
                   </Link>
                   <MenuItem onClick={handleClose}>
-                    <Avatar /> Enrolled Classes
+                    <SchoolIcon  sx={{fontSize: "30px", color: "#056B60", opacity: "0.8"}}/>&nbsp;&nbsp;&nbsp; <span style={{fontFamily: "Montserrat", color: 'black', letterSpacing: '0.5px', opacity: 0.8}}>Enrolled Classes&nbsp;&nbsp;</span>
                   </MenuItem>
                   <Divider />
                   <a href="/auth/logout">
                     <MenuItem onClick={handleClose}>
                       <ListItemIcon>
-                        <LogoutIcon fontSize="small" />
+                        <LogoutIcon sx={{fontSize: "20px", color: "#056B60", opacity: "0.8"}} />
                       </ListItemIcon>
-                      Logout
+                      <span style={{fontFamily: "Montserrat", color: 'black', letterSpacing: '0.5px', opacity: 0.8}}>Logout</span>
                     </MenuItem>
                   </a>
                 </Menu>

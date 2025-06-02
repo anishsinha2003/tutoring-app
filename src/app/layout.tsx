@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@fontsource/montserrat/700.css";
 import "@fontsource/montserrat/400.css";
-import { Auth0Provider, useUser } from "@auth0/nextjs-auth0";
+import { Auth0Provider } from "@auth0/nextjs-auth0";
 import styles from "@/styles/background.module.css";
 import { auth0 } from "@/lib/auth0";
 import NavBar from "@/components/NavBar";
+import { SnackbarProvider } from "@/contexts/SnackbarContext";
 
 
 export const metadata: Metadata = {
@@ -23,24 +24,26 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body style={{ backgroundColor: "#D9D9D9" }}>
-        <Auth0Provider>
-          <div
-          style={{
-            height: "100%",
-            width: "100vw",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <div className={styles.dottedBg} />
-          <div className={styles.diagonalBox}/>
-          <NavBar/>
-          {children}
-        </div>
-        </Auth0Provider>
+      <body style={{ backgroundColor: "#D9D9D9" }} suppressHydrationWarning>
+        <SnackbarProvider>
+            <Auth0Provider>
+              <div
+              style={{
+                height: "100%",
+                width: "100vw",
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <div className={styles.dottedBg} />
+              <div className={styles.diagonalBox}/>
+              <NavBar/>
+              {children}
+            </div>
+            </Auth0Provider>
+        </SnackbarProvider>
       </body>
     </html>
   );
